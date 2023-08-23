@@ -47,7 +47,7 @@ const ExpenseForm = (props) => {
         
         const expenseData = {
             title: newExpense.title,
-            amount: newExpense.amount,
+            amount: +newExpense.amount,
             date: new Date(newExpense.date)
         }
         props.onSaveExpenseData(expenseData);
@@ -79,7 +79,7 @@ const ExpenseForm = (props) => {
         {/* submit button*/}
         <div className='flex items-center justify-center col-span-3 min-w-fit md:col-span-3'>
         <button type='submit' className="w-48 h-10 col-span-2 px-2 mr-2 text-xl font-bold text-center text-white bg-teal-700 border-2 md:col-span-1 hover:bg-teal-500 rounded-xl" >Add Expense</button>
-        <button onClick={props.action} className="w-48 h-10 col-span-2 px-2 mr-2 text-xl font-bold text-center text-white bg-teal-700 border-2 md:col-span-1 hover:bg-teal-500 rounded-xl" >Cancel</button>
+        <button type='button' onClick={props.action} className="w-48 h-10 col-span-2 px-2 mr-2 text-xl font-bold text-center text-white bg-teal-700 border-2 md:col-span-1 hover:bg-teal-500 rounded-xl" >Cancel</button>
         </div>
     </form>
     )
