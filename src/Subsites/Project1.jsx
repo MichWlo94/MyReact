@@ -6,7 +6,7 @@ import { useState } from 'react';
 import NewExpense from '../Components/NewExpense';
 import ExpenseFilter from '../Components/ExpenseFilter';
 import ExpensesList from '../Components/ExpensesList';
-
+import ExpensesChart from '../Components/ExpensesChart';
 
 function Project1() {
   const dummy_expenses = [
@@ -96,6 +96,8 @@ function Project1() {
       
       <ExpenseFilter selected={filteredYear} onFilteredExpense={filterChangeHandler}/>
       
+      <ExpensesChart expenses={filteredExpenses} />
+
       <ExpensesList filteredExpenses={filteredExpenses} />
 
     </div>
