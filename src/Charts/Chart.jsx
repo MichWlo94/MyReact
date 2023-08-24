@@ -4,6 +4,8 @@ import ChartBar from './ChartBar'
 const Chart = (props) => {
 
     const totalMaximum = Math.max(...props.dataPoints.map(dataPoint => dataPoint.value))
+    //Math.max() zwraca największą liczbę z podanych argumentów lub NaN jeśli któryś z argumentów nie jest liczbą
+    //Math.max(...props.dataPoints.map(dataPoint => dataPoint.value)) - zwraca największą wartość z tablicy props.dataPoints
 
 
 
