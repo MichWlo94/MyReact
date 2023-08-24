@@ -6,6 +6,7 @@ import Contact from '../Subsites/Contact';
 import About from '../Subsites/About';
 import Project1 from '../Subsites/Project1';
 import {motion} from 'framer-motion'
+import Project2 from '../Subsites/Project2';
 
 export default function Navbar() {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
@@ -65,9 +66,9 @@ export default function Navbar() {
                 {dropdownIsOpen && (
                 <div className="absolute p-1 mt-3 ml-5 text-sm bg-gray-300 border border-green-300 shadow rounded-2">
                   
-                  <Link to="/project1" onClick={toggleDropdown} className="block px-3 py-1 text-gray-800 hover:bg-gray-100">Project1</Link>
+                  <Link to="/project1" onClick={toggleDropdown} className="block px-3 py-1 text-gray-800 hover:bg-gray-100">Expense App</Link>
                   
-                  <Link to="/" onClick={toggleDropdown} className="block px-3 py-1 text-gray-800 hover:bg-gray-100">Project2</Link>
+                  <Link to="/project2" onClick={toggleDropdown} className="block px-3 py-1 text-gray-800 hover:bg-gray-100">ToDo App</Link>
 
                   <Link to="/" onClick={toggleDropdown} className="block px-3 py-1 text-gray-800 hover:bg-gray-100">Project3</Link>
                 </div>)}
@@ -102,14 +103,11 @@ export default function Navbar() {
               {dropdownIsOpen && (
               <div className="absolute p-2 mt-2 ml-2 text-sm bg-gray-300 border border-green-300 rounded shadow">
                 
-                <Link to="/project1" onClick={toggleDropdown} className="block px-3 py-1 text-gray-800 hover:bg-gray-100">Project1</Link>
-                
-                <a href="#" onClick={toggleDropdown} className="block px-3 py-1 text-gray-800 hover:bg-gray-100">
-                  Option 2
-                </a>
-                <a href="#" onClick={toggleDropdown} className="block px-3 py-1 text-gray-800 hover:bg-gray-100">
-                  Option 3
-                </a>
+                <Link to="/project1" onClick={toggleDropdown} className="block px-3 py-1 text-gray-800 hover:bg-gray-100">Expense App</Link>
+                  
+                  <Link to="/project2" onClick={toggleDropdown} className="block px-3 py-1 text-gray-800 hover:bg-gray-100">ToDo App</Link>
+
+                  <Link to="/" onClick={toggleDropdown} className="block px-3 py-1 text-gray-800 hover:bg-gray-100">Project3</Link>
               </div>)}
             </div>
           </ul>
@@ -122,6 +120,7 @@ export default function Navbar() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/project1" element={<Project1 />} />
+        <Route path="/project2" element={<Project2 />} />
         </Routes>
     </BrowserRouter>
   )}
