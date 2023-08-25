@@ -1,12 +1,13 @@
 import { useState } from 'react'
 
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import LandingPage from '../Subsites/LandingPage';
-import Contact from '../Subsites/Contact';
-import About from '../Subsites/About';
-import Project1 from '../Subsites/Project1';
+import LandingPage from './LandingPage';
+import Contact from './Contact';
+import About from './About';
+import Project1 from './Project1';
 import {motion} from 'framer-motion'
-import Project2 from '../Subsites/Project2';
+import Project2 from './Project2';
+import Project3 from './Project3';
 
 export default function Navbar() {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
@@ -25,6 +26,9 @@ export default function Navbar() {
 
   return (
     <BrowserRouter> 
+    
+    {/* Mobile Navbar */}
+
     <nav className="fixed right-0 p-2 font-serif z-100 md:hidden">
         <div className="flex flex-wrap items-center justify-end max-w-screen-xl mx-auto">
           <motion.button
@@ -68,16 +72,19 @@ export default function Navbar() {
                   
                   <Link to="/project1" onClick={toggleDropdown} className="block px-3 py-1 text-gray-800 hover:bg-gray-100">Expense App</Link>
                   
-                  <Link to="/project2" onClick={toggleDropdown} className="block px-3 py-1 text-gray-800 hover:bg-gray-100">ToDo App</Link>
+                  <Link to="/project2" onClick={toggleDropdown} className="block px-3 py-1 text-gray-800 hover:bg-gray-100">Task App</Link>
 
-                  <Link to="/" onClick={toggleDropdown} className="block px-3 py-1 text-gray-800 hover:bg-gray-100">Project3</Link>
+                  <Link to="/project3" onClick={toggleDropdown} className="block px-3 py-1 text-gray-800 hover:bg-gray-100">Investment App</Link>
                 </div>)}
             </div>
             </ul>}
         </motion.div>
       </div>
     </nav>
-        
+
+
+    {/* Desktop Navbar */}    
+    
     <nav className="hidden p-3 font-serif bg-gray-700 border-b-2 border-red-800 md:block md:w-auto">
       <div className="flex flex-wrap items-center justify-end mx-auto max-w-screen-xxl">
         <div className='w-full md:block md:w-auto'>
@@ -105,9 +112,9 @@ export default function Navbar() {
                 
                 <Link to="/project1" onClick={toggleDropdown} className="block px-3 py-1 text-gray-800 hover:bg-gray-100">Expense App</Link>
                   
-                  <Link to="/project2" onClick={toggleDropdown} className="block px-3 py-1 text-gray-800 hover:bg-gray-100">ToDo App</Link>
+                  <Link to="/project2" onClick={toggleDropdown} className="block px-3 py-1 text-gray-800 hover:bg-gray-100">Task App</Link>
 
-                  <Link to="/" onClick={toggleDropdown} className="block px-3 py-1 text-gray-800 hover:bg-gray-100">Project3</Link>
+                  <Link to="/project3" onClick={toggleDropdown} className="block px-3 py-1 text-gray-800 hover:bg-gray-100">Investment App</Link>
               </div>)}
             </div>
           </ul>
@@ -121,6 +128,7 @@ export default function Navbar() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/project1" element={<Project1 />} />
         <Route path="/project2" element={<Project2 />} />
+        <Route path="/project3" element={<Project3 />} />
         </Routes>
     </BrowserRouter>
   )}

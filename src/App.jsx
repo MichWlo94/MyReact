@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import Navbar from './Components/Navbar';
+import Navbar from './Subsites/Navbar';
 
 
 export default function App() {

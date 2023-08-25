@@ -3,10 +3,10 @@
 
 import React from 'react';
 import { useState } from 'react';
-import NewExpense from '../Components/NewExpense';
-import ExpenseFilter from '../Components/ExpenseFilter';
-import ExpensesList from '../Components/ExpensesList';
-import ExpensesChart from '../Components/ExpensesChart';
+import NewExpense from '../ComponentsProject1/NewExpense';
+import ExpenseFilter from '../ComponentsProject1/ExpenseFilter';
+import ExpensesList from '../ComponentsProject1/ExpensesList';
+import ExpensesChart from '../ComponentsProject1/ExpensesChart';
 
 function Project1() {
   const dummy_expenses = [
