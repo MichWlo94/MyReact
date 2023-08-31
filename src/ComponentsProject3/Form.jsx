@@ -32,7 +32,7 @@ const resetHandler = (e) => {
 
 const inputChangeHandler = (input, value) => {
     setUserInput((prevState) => {
-        return {...prevState, [input]: value}
+        return {...prevState, [input]: +value}
     })
 }
 

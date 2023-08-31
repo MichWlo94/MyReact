@@ -8,6 +8,7 @@ import Project1 from './Project1';
 import {motion} from 'framer-motion'
 import Project2 from './Project2';
 import Project3 from './Project3';
+import Project4 from './Project4';
 
 export default function Navbar() {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
@@ -75,6 +76,8 @@ export default function Navbar() {
                   <Link to="/project2" onClick={toggleDropdown} className="block px-3 py-1 text-gray-800 hover:bg-gray-100">Task App</Link>
 
                   <Link to="/project3" onClick={toggleDropdown} className="block px-3 py-1 text-gray-800 hover:bg-gray-100">Investment App</Link>
+                  
+                  <Link to="/project4" onClick={toggleDropdown} className="block px-3 py-1 text-gray-800 hover:bg-gray-100">Modals + Form</Link>
                 </div>)}
             </div>
             </ul>}
@@ -115,6 +118,8 @@ export default function Navbar() {
                   <Link to="/project2" onClick={toggleDropdown} className="block px-3 py-1 text-gray-800 hover:bg-gray-100">Task App</Link>
 
                   <Link to="/project3" onClick={toggleDropdown} className="block px-3 py-1 text-gray-800 hover:bg-gray-100">Investment App</Link>
+              
+                  <Link to="/project4" onClick={toggleDropdown} className="block px-3 py-1 text-gray-800 hover:bg-gray-100">Modals + Form</Link>
               </div>)}
             </div>
           </ul>
@@ -129,6 +134,8 @@ export default function Navbar() {
         <Route path="/project1" element={<Project1 />} />
         <Route path="/project2" element={<Project2 />} />
         <Route path="/project3" element={<Project3 />} />
+        <Route path="/project4" element={<Project4 />} />
+
         </Routes>
     </BrowserRouter>
   )}
