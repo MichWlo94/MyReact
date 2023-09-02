@@ -8,7 +8,7 @@ import ExpenseFilter from '../ComponentsProject1/ExpenseFilter';
 import ExpensesList from '../ComponentsProject1/ExpensesList';
 import ExpensesChart from '../ComponentsProject1/ExpensesChart';
 
-function Project1() {
+function Project1(props) {
   const dummy_expenses = [
     {
       id: 'e1',
@@ -90,7 +90,7 @@ function Project1() {
   
 
   return (
-  <>
+  <div onClick={props.closeDropdown} className='w-screen h-screen'>
     {expenseWindow}
     <div className="flex flex-col items-center justify-center p-4 m-5 shadow-neon-glow-blue rounded-xl bg-slate-700/50">
       
@@ -101,7 +101,7 @@ function Project1() {
       <ExpensesList filteredExpenses={filteredExpenses} />
 
     </div>
-  </>
+  </div>
   );
 }
 

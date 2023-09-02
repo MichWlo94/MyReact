@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import CourseGoalList from '../ComponentsProject2/CourseGoalList'
 import CourseInput from '../ComponentsProject2/CourseInput'
 
-const Project2 = () => {
+const Project2 = (props) => {
   const [courseGoals, setCourseGoals] = useState([
     { text: 'Do all exercises!', id: 'g1' },
     { text: 'Finish the course!', id: 'g2' }
@@ -35,7 +35,7 @@ const Project2 = () => {
   }
 
   return (
-    <div>
+    <div onClick={props.closeDropdown}>
       <section className='flex items-center justify-center w-10/12 p-3 mx-auto mt-4 bg-slate-300' id="goal-form">
         <CourseInput onAddGoal={addGoalHandler} />
       </section>

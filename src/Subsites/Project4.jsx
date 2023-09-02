@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import User from '../ComponentsProject4/User';
 import Card from '../ComponentsProject4/Card';
 
-const Project4 = () => {
+const Project4 = (props) => {
     const [userList, setUserList] = useState([]);
 
 
-    // Add a new user to the list
+    // Add a new user to the list using a function that takes the user data as an argument
     const addUser = (user) => {
-        setUserList([...userList, user]);
+        setUserList((prevUserList) => {
+            return [...prevUserList, user]});
     };
 
     // Delete a user from the list based on the index 
@@ -19,7 +20,7 @@ const Project4 = () => {
     };
 
     return (
-        <div className="flex flex-col h-screen font-lobster bg-gradient-to-b from-slate-400 via-stone-600 to-slate-800">
+        <div onClick={props.closeDropdown} className="flex flex-col h-screen font-lobster bg-gradient-to-b from-slate-400 via-stone-600 to-slate-800">
             <User onInput={addUser} /> {/* Pass the user data to the parent component */}
             <div className="mb-3 text-2xl text-center text-white">
                 {userList.length === 0 ? 'Please enter your data' : null}
