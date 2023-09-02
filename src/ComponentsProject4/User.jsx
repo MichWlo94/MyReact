@@ -1,13 +1,18 @@
 import React from 'react'
 import Button from '../ComponentsProject4/Button'
 import { useState } from 'react'
+import ErrorModal from './ErrorModal'
 
 
 const User = (props) => {
+    
+    // Create a state to store the user data
     const [userData, setUserData] = useState({
         UserName: '',
         Age: ''
     });
+
+    const [showErrorModal, setShowErrorModal] = useState(false); // Manage modal visibility
 
     // Update the state when the user types in the input field
     const inputChangeHandler = (input, value) => {
@@ -17,27 +22,36 @@ const User = (props) => {
         }));
     };
 
-
     // Submit the form and reset the state to empty strings when the user clicks the submit button
     const submitHandler = (e) => {
         e.preventDefault();
         
+        if (userData.UserName.length === 0 || userData.Age.trim() === '') {
+            setShowErrorModal(true); // Show the modal
+            return;
+        }
+
         // Check if both UserName and Age are filled before adding to the list
         if (userData.UserName.length === 0 || userData.Age.trim() === '') {
             alert('Please fill in all fields before submitting.');
             return;
         }
-        
-        
-        props.onInput(userData); // Pass the user data to the parent component
+
+        // Check if the age is a valid number
+        if (+userData.Age < 1) {
+            alert('Please enter a valid age (> 0).');
+            return;
+        }
+          
+        props.onInput(userData); // Pass the user data to the parent component 
+
         setUserData({
             UserName: '',
             Age: ''
         });
     };
 
-    
-
+    // Reset the state to empty strings when the user clicks the reset button
     const resetHandler = (e) => {
         e.preventDefault();
         setUserData({
@@ -45,8 +59,9 @@ const User = (props) => {
             Age: ''
         });}
 
-        
   return (
+    <>
+    {showErrorModal && <ErrorModal onHide={() => setShowErrorModal(false)} />} {/* Conditional rendering of modal */}
     <form onSubmit={submitHandler} className="flex flex-col items-center justify-center w-auto m-10 mr-10 border-2 border-black rounded-2xl h-1/3 bg-gradient-to-tr from-yellow-400 via-slate-500 to-teal-500">
         <div>
         <label className="mb-2 text-lg font-bold text-gray-800" htmlFor="UserName">UserName</label>
@@ -61,7 +76,7 @@ const User = (props) => {
         <Button />
         </div>
     </form>
-    
+    </>
   )
 }
 

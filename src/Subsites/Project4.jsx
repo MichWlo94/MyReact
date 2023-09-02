@@ -6,9 +6,10 @@ const Project4 = () => {
     const [userList, setUserList] = useState([]);
 
 
-    // Add a new user to the list
+    // Add a new user to the list using a function that takes the user data as an argument
     const addUser = (user) => {
-        setUserList([...userList, user]);
+        setUserList((prevUserList) => {
+            return [...prevUserList, user]});
     };
 
     // Delete a user from the list based on the index 
