@@ -24,6 +24,9 @@ export default function Navbar() {
     setDropdownIsOpen(!dropdownIsOpen);
   };
 
+  const closeDropdown = () => {
+    setDropdownIsOpen(false);
+  };
 
   return (
     <BrowserRouter> 
@@ -128,13 +131,13 @@ export default function Navbar() {
     </nav>
 
     <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/project1" element={<Project1 />} />
-        <Route path="/project2" element={<Project2 />} />
-        <Route path="/project3" element={<Project3 />} />
-        <Route path="/project4" element={<Project4 />} />
+        <Route path="/" element={<LandingPage closeDropdown={closeDropdown}/>} />
+        <Route path="/about" element={<About closeDropdown={closeDropdown}/>} />
+        <Route path="/contact" element={<Contact closeDropdown={closeDropdown}/>} />
+        <Route path="/project1" element={<Project1 closeDropdown={closeDropdown}/>} />
+        <Route path="/project2" element={<Project2 closeDropdown={closeDropdown}/>} />
+        <Route path="/project3" element={<Project3 closeDropdown={closeDropdown}/>} />
+        <Route path="/project4" element={<Project4 closeDropdown={closeDropdown}/>} />
 
         </Routes>
     </BrowserRouter>

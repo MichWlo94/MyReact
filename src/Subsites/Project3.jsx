@@ -4,7 +4,7 @@ import Table from "../ComponentsProject3/Table";
 import { useState } from "react";
 
 
-function Project3() {
+function Project3(props) {
   
   const [userInput, setUserInput] = useState(null);
 
@@ -37,7 +37,7 @@ function Project3() {
   
 
   return (
-    <div className="box-border h-screen font-lobster bg-gradient-to-b from-slate-400 via-stone-600 to-slate-800">
+    <div onClick={props.closeDropdown} className="box-border h-screen font-lobster bg-gradient-to-b from-slate-400 via-stone-600 to-slate-800">
       <Header />
 
       <Form onCalculate={calculateHandler} />

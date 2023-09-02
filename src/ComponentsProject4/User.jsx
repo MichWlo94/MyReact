@@ -26,22 +26,22 @@ const User = (props) => {
     const submitHandler = (e) => {
         e.preventDefault();
         
-        if (userData.UserName.length === 0 || userData.Age.trim() === '') {
+        if (userData.UserName.length === 0 || userData.Age.trim() === '' || +userData.Age < 1) {
             setShowErrorModal(true); // Show the modal
             return;
         }
 
         // Check if both UserName and Age are filled before adding to the list
-        if (userData.UserName.length === 0 || userData.Age.trim() === '') {
-            alert('Please fill in all fields before submitting.');
-            return;
-        }
+        // if (userData.UserName.length === 0 || userData.Age.trim() === '') {
+        //     alert('Please fill in all fields before submitting.');
+        //     return;
+        // }
 
-        // Check if the age is a valid number
-        if (+userData.Age < 1) {
-            alert('Please enter a valid age (> 0).');
-            return;
-        }
+        // // Check if the age is a valid number
+        // if (+userData.Age < 1) {
+        //     alert('Please enter a valid age (> 0).');
+        //     return;
+        // }
           
         props.onInput(userData); // Pass the user data to the parent component 
 
