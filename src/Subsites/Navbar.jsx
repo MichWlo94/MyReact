@@ -9,6 +9,7 @@ import {motion} from 'framer-motion'
 import Project2 from './Project2';
 import Project3 from './Project3';
 import Project4 from './Project4';
+import Shop from './Shop';
 
 export default function Navbar() {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
@@ -61,6 +62,9 @@ export default function Navbar() {
               <li>
                 <Link to="/contact" className="text-white hover:underline">Contact</Link>
               </li>
+              <li>
+                <Link to="/shop" className="text-white hover:underline">Shop</Link>
+              </li>
               
             <div className="relative mb-2">
                 <button
@@ -104,6 +108,9 @@ export default function Navbar() {
             <li>
               <Link to="/contact" className="hover:underline">Contact</Link>
             </li>
+            <li>
+                <Link to="/shop" className="text-white hover:underline">Shop</Link>
+              </li>
             <div className="relative">
             <button
               className="flex items-center text-teal-400 cursor-pointer hover:underline focus:outline-none focus:shadow-outline"
@@ -134,6 +141,7 @@ export default function Navbar() {
         <Route path="/" element={<LandingPage closeDropdown={closeDropdown}/>} />
         <Route path="/about" element={<About closeDropdown={closeDropdown}/>} />
         <Route path="/contact" element={<Contact closeDropdown={closeDropdown}/>} />
+        <Route path="/shop" element={<Shop closeDropdown={closeDropdown}/>} />
         <Route path="/project1" element={<Project1 closeDropdown={closeDropdown}/>} />
         <Route path="/project2" element={<Project2 closeDropdown={closeDropdown}/>} />
         <Route path="/project3" element={<Project3 closeDropdown={closeDropdown}/>} />
