@@ -18,7 +18,7 @@ const Meals = () => {
     }));
   }
 
-  // Fetch meals from the server by fetching the JSON file 
+  // Fetch meals from the server by fetching the JSON file by default method fetch
   // useEffect( () => {
   //   async function fetchMeals() {
   //   const response = await fetch(`http://localhost:5173/available-meals.json`);
@@ -37,7 +37,7 @@ const Meals = () => {
   useEffect(() => {
     async function fetchMeals() {
       try {
-        const response = await axios.get('http://localhost:5173/available-meals.json');
+        const response = await axios.get('http://localhost:3500/shop');
 
         if (response.status !== 200) {
           throw new Error('Something went wrong!');
@@ -69,7 +69,7 @@ const Meals = () => {
           className="relative flex flex-col items-center justify-center w-full overflow-hidden bg-white rounded-lg shadow-md h-100"
         >
           <img
-            src={meal.image}
+            src={`http://localhost:3500/${meal.image}`}
             alt={meal.name}
             className="object-contain w-full min-h-40"
           />

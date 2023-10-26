@@ -1,5 +1,4 @@
 import fs from 'node:fs/promises';
-
 import bodyParser from 'body-parser';
 import express from 'express';
 
@@ -12,12 +11,11 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  res.setHeader('Content-Type', 'application/json');
   next();
 });
 
-app.get('/meals', async (req, res) => {
-  const meals = await fs.readFile('./available-meals.json', 'utf8');
+app.get('/shop', async (req, res) => {
+  const meals = await fs.readFile('./public/available-meals.json', 'utf8');
   res.json(JSON.parse(meals));
 });
 
@@ -52,10 +50,10 @@ app.post('/orders', async (req, res) => {
     ...orderData,
     id: (Math.random() * 1000).toString(),
   };
-  const orders = await fs.readFile('./orders.json', 'utf8');
+  const orders = await fs.readFile('./public/orders.json', 'utf8');
   const allOrders = JSON.parse(orders);
   allOrders.push(newOrder);
-  await fs.writeFile('./orders.json', JSON.stringify(allOrders));
+  await fs.writeFile('./public/orders.json', JSON.stringify(allOrders));
   res.status(201).json({ message: 'Order created!' });
 });
 
@@ -67,4 +65,8 @@ app.use((req, res) => {
   res.status(404).json({ message: 'Not found' });
 });
 
-app.listen(5173);
+const port = 3500; // Port number
+
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
