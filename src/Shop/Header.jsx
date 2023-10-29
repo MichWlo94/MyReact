@@ -5,6 +5,7 @@ import { useContext } from 'react'
 import CartContext from './CartContext'
 import UserProgressContext from './UserProgressContext'
 import Cart from './Cart'
+import Checkout from './Checkout'
 
 const Header = () => {
 
@@ -34,6 +35,7 @@ const Header = () => {
     <h1 className="items-center text-2xl font-semibold tracking-wider text-center text-yellow-400 uppercase ">Super Foods, in your Neighbourhoods :)</h1>
     <Meals />
     <Cart />
+    <Checkout />
     </div>
   
   )
