@@ -4,13 +4,18 @@ import { useContext } from 'react'
 import Input from './Input';
 import UserProgressContext from './UserProgressContext';
 import axios from 'axios';
+import useHttp from './useHttp';
+import Error from './Error';
 
+const requestConfig = {method: 'POST', headers: {'Content-Type': 'application/json'}};
 
 function Checkout() {
 
     const cartCtx = useContext(CartContext);
     const userProgressCtx = useContext(UserProgressContext);
 
+    const {data, isLoading: isSending, error, sendRequest, clearData} = useHttp('http://localhost:3500/orders', requestConfig);
+    
     const cartTotal = cartCtx.items.reduce((totalPrice, item) => {
         return totalPrice + item.quantity * item.price
     }, 0).toFixed(2)
@@ -19,31 +24,89 @@ function Checkout() {
         userProgressCtx.hideCheckout()
     };
 
+    function handleFinish() {
+        userProgressCtx.hideCheckout();
+        cartCtx.clearCart();
+        clearData();
+      }
+
     function handleSubmit(event) {
         event.preventDefault();
         
         const fd = new FormData(event.target);
         const customerData = Object.fromEntries(fd.entries());
+        
+        
+
+    //     axios.post('http://localhost:3500/orders', {
+    //         order: {
+    //             items: cartCtx.items,
+    //             customer: customerData
+    //         }
+    //     }, {
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         }
+    //     })
+    //     .then(response => {
+    //         // Handle the successful response here
+    //         console.log('Order created:', response.data.message);
+    //     })
+    //     .catch(error => {
+    //         // Handle any errors here
+    //         console.error('Error creating order:', error);
+    //     });
+    // }
     
-        axios.post('http://localhost:3500/orders', {
+    sendRequest(JSON.stringify({
             order: {
                 items: cartCtx.items,
                 customer: customerData
             }
-        }, {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => {
-            // Handle the successful response here
-            console.log('Order created:', response.data.message);
-        })
-        .catch(error => {
-            // Handle any errors here
-            console.error('Error creating order:', error);
-        });
+        }));
+
     }
+
+    let actions = (
+        <>
+        <button
+            onClick={handleClose}
+            type="button"
+            className="px-4 py-2 mr-2 font-bold text-black bg-red-500 rounded hover:bg-red-600"
+        >
+            Cancel
+        </button>
+        <button
+            type="submit"
+            className="px-4 py-2 font-bold text-black bg-green-500 rounded hover:bg-green-600"
+        >
+            Submit Order
+        </button>
+        </>);
+    
+    if (isSending) {
+        actions = <p className="text-center">Sending order data...</p>;
+    }
+
+    if (data && !error) {
+        return (
+          <Modal
+            open={userProgressCtx.progress === 'checkout'}
+            onClose={handleFinish}
+          >
+            <h2 className='pb-2 text-2xl font-bold text-center'>Success!</h2>
+            <p className='text-center'>Your order was submitted successfully.</p>
+            <p className='text-center'>
+              We will get back to you with more details via email within the next
+              few minutes.
+            </p>
+            <p className='flex justify-center p-2'>
+              <button className="px-4 py-2 mr-2 font-bold text-black bg-red-500 rounded hover:bg-red-600" 
+              onClick={handleFinish}>Finish</button>
+            </p>
+          </Modal>
+        );
+      }
 
   return (
     <Modal open={userProgressCtx.progress === 'checkout'} onClose={handleClose}>
@@ -124,21 +187,9 @@ function Checkout() {
             />
         </div>
     </div>
-
+    {error && <Error title="Failed to submit order" message={error} />}
     <div className="flex justify-center mt-6">
-        <button
-            onClick={handleClose}
-            type="button"
-            className="px-4 py-2 mr-2 font-bold text-black bg-red-500 rounded hover:bg-red-600"
-        >
-            Cancel
-        </button>
-        <button
-            type="submit"
-            className="px-4 py-2 font-bold text-black bg-green-500 rounded hover:bg-green-600"
-        >
-            Submit Order
-        </button>
+        {actions}
     </div>
 </form>
     </Modal>

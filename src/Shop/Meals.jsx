@@ -1,7 +1,11 @@
 import { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 import CartContext from './CartContext'
+import useHttp from './useHttp'
+import Error from './Error'
 
+
+const requestConfig = {};
 
 const Meals = () => {
   
@@ -34,25 +38,38 @@ const Meals = () => {
   // }, []); 
 
   // Fetch meals from the server by using axios
-  useEffect(() => {
-    async function fetchMeals() {
-      try {
-        const response = await axios.get('http://localhost:3500/shop');
+  // useEffect(() => {
+  //   async function fetchMeals() {
+  //     try {
+  //       const response = await axios.get('http://localhost:3500/shop');
 
-        if (response.status !== 200) {
-          throw new Error('Something went wrong!');
-        }
+        
 
-        const meals = response.data;
-        setMeals(meals);
-      } catch (error) {
-        console.error('Error fetching meals:', error);
-        // Handle the error, e.g., display an error message to the user
-      }
-    }
+  //       if (response.status !== 200) {
+  //         throw new Error(response.message || 'Something went wrong!');
+  //       }
 
-    fetchMeals();
-  }, []);
+  //       const meals = response.data;
+  //       setMeals(meals);
+  //     } catch (error) {
+  //       console.error('Error fetching meals:', error);
+  //       // Handle the error, e.g., display an error message to the user
+  //     }
+  //   }
+
+  //   fetchMeals();
+  // }, []);
+
+  const {data: loadedMeals, isLoading, error} = useHttp('http://localhost:3500/shop', requestConfig, [])
+  if (isLoading) {
+    return <p className="p-4 mx-auto mt-8 text-xl text-center text-black bg-yellow-500 w-fit">
+    Loading meals...
+  </p>
+  }
+
+  if (error) {
+    return <Error  title="Failed to fetch meals" message={error} />}
+
 
   const cartCtx = useContext(CartContext)
 
@@ -63,7 +80,7 @@ const Meals = () => {
 
     return (
       <ul className="grid max-w-screen-lg grid-cols-1 gap-4 p-4 mx-auto my-8 list-none w-90 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-      {meals.map((meal) => (
+      {loadedMeals.map((meal) => (
         <li
           key={meal.id}
           className="relative flex flex-col items-center justify-center w-full overflow-hidden bg-white rounded-lg shadow-md h-100"
