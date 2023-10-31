@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import LandingPage from './LandingPage';
 import Contact from './Contact';
-import About from './About';
+import ITLandingPage from './ITLandingPage';
 import Project1 from './Project1';
 import {motion} from 'framer-motion'
 import Project2 from './Project2';
@@ -34,7 +34,7 @@ export default function Navbar() {
     
     {/* Mobile Navbar */}
 
-    <nav className="fixed right-0 p-2 font-serif z-100 md:hidden">
+    <nav className="fixed right-0 p-3 font-serif z-100 md:hidden">
         <div className="flex flex-wrap items-center justify-end max-w-screen-xl mx-auto">
           <motion.button
             whileInView={{scale: [0, 1]}} transition={{duration: 1, type:'spring', stiffness: 300, ease: 'easeInOut', mass: 1}}
@@ -54,14 +54,15 @@ export default function Navbar() {
             {menuIsOpen && 
             <ul className='flex flex-col flex-wrap pl-3 pr-3 ml-4 bg-gray-700 border-2 border-red-800 rounded-md'>
               <li>
-                <Link to="/" className="font-bold text-teal-400 hover:underline">Home</Link>
-              </li>
-              <li>
-                <Link to="/about" className="text-white hover:underline">About</Link>
+                <Link to="/" className="font-bold text-teal-400 hover:underline">Portfolio</Link>
               </li>
               <li>
                 <Link to="/contact" className="text-white hover:underline">Contact</Link>
               </li>
+              <li>
+                <Link to="/ITLandingPage" className="text-white hover:underline">IT Landing Page</Link>
+              </li>
+              
               <li>
                 <Link to="/shop" className="text-white hover:underline">Shop</Link>
               </li>
@@ -95,19 +96,20 @@ export default function Navbar() {
 
     {/* Desktop Navbar */}    
     
-    <nav className="hidden p-3 font-serif bg-gray-700 border-b-2 border-red-800 md:block md:w-auto">
+    <nav className="hidden p-3 font-serif bg-gray-700 border-b-2 border-red-800 md:block md:w-screen md:pr-10">
       <div className="flex flex-wrap items-center justify-end mx-auto max-w-screen-xxl">
         <div className='w-full md:block md:w-auto'>
           <ul className="flex space-x-5 text-white">
             <li>
-              <Link to="/" className="font-bold text-teal-400 hover:underline">Home</Link>
-            </li>
-            <li>
-              <Link to="/about" className="hover:underline">About</Link>
+              <Link to="/" className="font-bold text-teal-400 hover:underline">Portfolio</Link>
             </li>
             <li>
               <Link to="/contact" className="hover:underline">Contact</Link>
             </li>
+            <li>
+              <Link to="/ITLandingPage" className="hover:underline">IT Landing Page</Link>
+            </li>
+            
             <li>
                 <Link to="/shop" className="text-white hover:underline">Shop</Link>
               </li>
@@ -139,7 +141,7 @@ export default function Navbar() {
 
     <Routes>
         <Route path="/" element={<LandingPage closeDropdown={closeDropdown}/>} />
-        <Route path="/about" element={<About closeDropdown={closeDropdown}/>} />
+        <Route path="/ITLandingPage" element={<ITLandingPage closeDropdown={closeDropdown}/>} />
         <Route path="/contact" element={<Contact closeDropdown={closeDropdown}/>} />
         <Route path="/shop" element={<Shop closeDropdown={closeDropdown}/>} />
         <Route path="/project1" element={<Project1 closeDropdown={closeDropdown}/>} />
