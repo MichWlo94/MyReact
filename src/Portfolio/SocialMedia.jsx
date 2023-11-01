@@ -3,7 +3,7 @@ import { BsLinkedin, BsInstagram } from 'react-icons/bs';
 import { FaFacebookF, FaGithub } from 'react-icons/fa';
 
 const SocialMedia = () => (
-  <div className="fixed flex flex-col items-center justify-end w-20 h-[85vh] p-6">
+  <div className="fixed flex flex-col items-center justify-end w-20 h-[100vh] md:h-[85vh] p-6 z-50 scale-75 lg:scale-100">
       <a className='pb-4' href='https://www.linkedin.com/in/micha%C5%82-w%C5%82odarczyk-4aa33a1a2/' target="_blank" rel="noreferrer">
     <div >
         <BsLinkedin className='flex items-center justify-center duration-200 ease-in-out transform bg-white border-2 border-black rounded-full w-14 h-14 hover:scale-125 trasition' />
