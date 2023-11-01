@@ -28,7 +28,7 @@ const Skills = () => {
       ],
     },
   ];
-
+  //add
   const skills = [
     {
       name: "React",
