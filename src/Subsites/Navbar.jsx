@@ -34,7 +34,7 @@ export default function Navbar() {
     
     {/* Mobile Navbar */}
 
-    <nav className="fixed right-0 p-3 font-serif z-100 md:hidden">
+    <nav className="fixed right-0 z-50 p-3 font-serif md:hidden">
         <div className="flex flex-wrap items-center justify-end max-w-screen-xl mx-auto">
           <motion.button
             whileInView={{scale: [0, 1]}} transition={{duration: 1, type:'spring', stiffness: 300, ease: 'easeInOut', mass: 1}}
@@ -96,8 +96,8 @@ export default function Navbar() {
 
     {/* Desktop Navbar */}    
     
-    <nav className="hidden p-3 font-serif bg-gray-700 border-b-2 border-red-800 md:block md:w-screen md:pr-10">
-      <div className="flex flex-wrap items-center justify-end mx-auto max-w-screen-xxl">
+    <nav className="z-20 hidden p-3 font-serif bg-gray-700 border-b-2 border-red-800 md:block md:w-screen md:pr-10">
+      <div className="flex flex-wrap items-center justify-end mx-auto">
         <div className='w-full md:block md:w-auto'>
           <ul className="flex space-x-5 text-white">
             <li>
