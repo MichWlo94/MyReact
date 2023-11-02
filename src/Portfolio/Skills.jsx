@@ -7,13 +7,14 @@ import images from './images';
 const Skills = () => {
   
   const experiences = [
-        {
-      year: "2023",
+
+    {
+      year: "09.2022-10.2023",
       works: [
         {
-          name: "Portfolio - Front End",
-          company: "",
-          desc: "Creating a modern online Portfolio in React.js",
+          name: "Junior Frontend Developer",
+          company: "Lemai Przemysław Pełka",
+          desc: "Task based development of websites and web applications using React, Tailwind CSS, CSS, and Git. My role entailed coding and maintaining web application interfaces, collaborating with a team to ensure responsive and visually appealing designs.",
         },
       ],
     },
@@ -21,14 +22,14 @@ const Skills = () => {
       year: "2022",
       works: [
         {
-          name: "Internship",
-          company: "Lemai Przemysław Pełka",
-          desc: "Sharpening JavaScript, CSS and HTML skills",
+          name: "Freelancer",
+          company: "None",
+          desc: "Creating websites and Apps using React.js. Sharpening JavaScript, CSS and HTML skills.",
         },
       ],
     },
   ];
-  //add
+  
   const skills = [
     {
       name: "React",
@@ -58,14 +59,18 @@ const Skills = () => {
   ];
 
   return (
-    <div className='h-[100vh] w-4/5 mx-auto mt-10 -z-10'>
-      <motion.h2 className="text-6xl font-bold text-center py-14 head-textx"
+    <>
+
+    {/* Desktop version */}
+    <div className='hidden lg:block h-[100vh] w-4/5 mx-auto mt-10 -z-10'>
+      <motion.h2 className="text-6xl font-bold text-center py-14"
       whileInView={{scale: [0, 1]}}
       transition={{duration: 1}}
       >Skills & <span className='text-blue-800'>Experiences</span></motion.h2>
 
+
       <div className="flex flex-row justify-between app__skills-container">
-        <motion.div className="flex flex-wrap items-start justify-start app__skills-list">
+        <motion.div className="flex flex-wrap items-center justify-center app__skills-list min-w-[600px] max-w-[650px]">
           {skills.map((skill, index) => (
             <motion.div
               whileInView={{ opacity: [0, 1] }}
@@ -73,20 +78,22 @@ const Skills = () => {
               className="app__skills-item app__flex"
               key={index}
             >
-              <div className="mx-5 rounded-full h-36 w-36 app__flex" style={{ backgroundColor: skill.bgColor }}>
+              <div className="self-center mx-5 rounded-full h-36 w-36 app__flex hover:shadow-neon-glow-green hover:shadow-slate-300" style={{ backgroundColor: skill.bgColor }}>
                 <img className='p-3' src={skill.icon} alt={skill.name} />
               </div>
               <p className="pt-2 text-xl font-bold text-center p-text">{skill.name}</p>
             </motion.div>
           ))}
         </motion.div>
-        <div className="app__skills-exp">
+
+
+        <div className="font-bold text-center app__skills-exp">
           {experiences.map((experience, index) => (
-            <motion.div className="app__skills-exp-item" key={index}>
-              <div className="app__skills-exp-year">
-                <p className="bold-text">{experience.year}</p>
+            <motion.div className="flex app__skills-exp-item" key={index}>
+              <div className="text-blue-900 pr-14 app__skills-exp-year min-w-[300px]">
+                <p className="text-4xl bold-text max-w-[200px]">{experience.year}</p>
               </div>
-              <motion.div className="app__skills-exp-works">
+              <motion.div className=" app__skills-exp-works">
                 {experience.works.map((work, workIndex) => (
                   <React.Fragment key={workIndex}>
                     <motion.div
@@ -94,11 +101,11 @@ const Skills = () => {
                       transition={{ duration: 0.5 }}
                       className="app__skills-exp-work"
                     >
-                      <h4 className="bold-text">{work.name}</h4>
-                      <p className="p-text">{work.company}</p>
+                      <h4 className="pb-2 text-4xl bold-text">{work.name}</h4>
+                      <p className="py-2 text-3xl text-blue-900 p-text">{work.company}</p>
                     </motion.div>
                     <motion.div
-                      className="skills-tooltip"
+                      className="font-semibold w-[800px] p-8 m-2 mb-8 text-2xl shadow-xl skills-tooltip bg-slate-200 rounded-2xl border-slate-300"
                     >
                       {work.desc}
                     </motion.div>
@@ -110,6 +117,63 @@ const Skills = () => {
         </div>
       </div>
     </div>
+
+{/* Mobile View */}
+<div className='lg:hidden h-[100vh] w-4/5 mx-auto mt-10 -z-10'>
+<motion.h2 className="mb-10 text-5xl font-bold text-center py-14"
+whileInView={{scale: [0, 1]}}
+transition={{duration: 1}}
+>Skills & <span className='text-blue-800'>Experiences</span></motion.h2>
+
+
+<div className="flex flex-col justify-between">
+  <motion.div className="flex flex-wrap items-start justify-start min-w-[600px] max-w-[650px]">
+    {skills.map((skill, index) => (
+      <motion.div
+        whileInView={{ opacity: [0, 1] }}
+        transition={{ duration: 0.5 }}
+        key={index}
+      >
+        <div className="self-center w-20 h-20 mx-5 rounded-full hover:shadow-neon-glow-green hover:shadow-slate-300" style={{ backgroundColor: skill.bgColor }}>
+          <img className='p-3' src={skill.icon} alt={skill.name} />
+        </div>
+        <p className="py-4 text-xl font-bold text-center">{skill.name}</p>
+      </motion.div>
+    ))}
+  </motion.div>
+
+
+  <div className="mt-20 font-bold text-center">
+    {experiences.map((experience, index) => (
+      <motion.div className="flex " key={index}>
+        <div className="text-blue-900 pr-14 min-w-[100px]">
+          <p className="text-2xl bold-text max-w-[100px]">{experience.year}</p>
+        </div>
+        <motion.div className=" app__skills-exp-works">
+          {experience.works.map((work, workIndex) => (
+            <React.Fragment key={workIndex}>
+              <motion.div
+                whileInView={{ opacity: [0, 1] }}
+                transition={{ duration: 0.5 }}
+                className="app__skills-exp-work"
+              >
+                <h4 className="pb-2 text-2xl bold-text">{work.name}</h4>
+                <p className="py-2 text-xl text-blue-900 p-text">{work.company}</p>
+              </motion.div>
+              <motion.div
+                className="font-semibold min-w-[470px] p-8 m-2 mb-8 text-xl shadow-xl skills-tooltip bg-slate-200 rounded-2xl border-slate-300"
+              >
+                {work.desc}
+              </motion.div>
+            </React.Fragment>
+          ))}
+        </motion.div>
+      </motion.div>
+    ))}
+  </div>
+</div>
+</div>
+</>              
   );
 };
 
