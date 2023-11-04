@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import images from "./images";
+import AppWrap from "./AppWrap";
+import MotionWrap from "./MotionWrap";
 
 const abouts = [
   {
@@ -88,4 +90,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default AppWrap(MotionWrap(About), 'About');

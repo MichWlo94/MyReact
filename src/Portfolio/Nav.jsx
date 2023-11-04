@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import images from './images';
+import AppWrap from './AppWrap';
 
 const Nav = () => {
   const [toggle, setToggle] = useState(false);
@@ -10,7 +11,7 @@ const Nav = () => {
         <img src={images.logo3} alt="logo" className="w-1/2" />
       </div>
       <ul className="flex gap-6 pr-24 text-2xl font-bold text-black md:text-3xl">
-        {['Home', 'About', 'Work', 'Skills'].map((item) => (
+        {['Home', 'About', 'Skills'].map((item) => (
           <li className='hover:underline' key={item}>
             <a href={`#${item}`} onClick={() => setToggle(false)}>
               {item}
@@ -22,4 +23,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default AppWrap(Nav, 'Home');

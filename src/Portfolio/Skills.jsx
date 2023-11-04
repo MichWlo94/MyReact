@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import images from './images';
+import AppWrap from './AppWrap';
+import MotionWrap from './MotionWrap';
 
 const Skills = () => {
   
@@ -177,4 +179,4 @@ transition={{duration: 1}}
   );
 };
 
-export default Skills
+export default AppWrap(MotionWrap(Skills), 'Skills');
