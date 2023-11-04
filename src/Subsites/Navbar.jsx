@@ -59,9 +59,9 @@ export default function Navbar() {
               <li>
                 <Link to="/contact" className="text-white hover:underline">Contact</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="/ITLandingPage" className="text-white hover:underline">IT Landing Page</Link>
-              </li>
+              </li> */}
               
               <li>
                 <Link to="/shop" className="text-white hover:underline">Shop</Link>
@@ -106,9 +106,9 @@ export default function Navbar() {
             <li>
               <Link to="/contact" className="hover:underline">Contact</Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="/ITLandingPage" className="hover:underline">IT Landing Page</Link>
-            </li>
+            </li> */}
             
             <li>
                 <Link to="/shop" className="text-white hover:underline">Shop</Link>

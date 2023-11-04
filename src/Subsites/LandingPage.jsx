@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from 'react';
 import Nav from '../Portfolio/Nav';
 import SocialMedia from '../Portfolio/SocialMedia';
 import Header from '../Portfolio/Header';
