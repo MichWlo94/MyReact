@@ -6,7 +6,7 @@ const Nav = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <nav className="flex items-center justify-between w-full py-2 border-b-2 border-black bg-gradient-to-r from-slate-50 to-slate-300">
+    <nav className="flex items-center justify-between w-[645px] lg:w-screen py-2 border-b-2 border-black bg-gradient-to-r from-slate-50 to-slate-300">
       <div className="app__navbar-logo">
         <img src={images.logo3} alt="logo" className="w-1/2" />
       </div>

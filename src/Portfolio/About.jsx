@@ -22,9 +22,9 @@ const About = () => {
   return (
     <>
     {/* Desktop version */}
-    <div className="hidden lg:block h-[100vh] w-4/5 mx-auto mt-10 -z-10">
+    <div className="hidden lg:block h-[100vh] mx-auto -z-10 scale-75">
       <motion.h2
-        className="text-6xl font-bold text-center py-14"
+        className="py-5 text-6xl font-bold text-center"
         whileInView={{
           opacity: [0, 1],
           x: [-800, 0],
@@ -55,7 +55,7 @@ const About = () => {
     </div>
 
     {/* Mobile version */}
-    <div className="lg:hidden h-[100vh] w-4/5 mx-auto mt-10 -z-10">
+    <div className="h-auto mx-auto mt-5 ml-16 lg:hidden -z-10 min-w-[520px] mb-28">
       <motion.h2
         className="py-8 pt-6 text-4xl font-bold text-center"
         whileInView={{
@@ -76,7 +76,7 @@ const About = () => {
             whileInView={{ opacity: 1 }}
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.5, type: "tween" }}
-            className="flex flex-col items-start justify-start p-4 m-4 w-[450px] app__profile-item"
+            className="flex flex-col items-start justify-start p-4 m-4 w-[650px] app__profile-item"
             key={about.title + index}
           >
             <img src={about.imgUrl} alt={about.title} className="object-cover w-full h-[250px] rounded-2xl"/>

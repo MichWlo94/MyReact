@@ -64,15 +64,15 @@ const Skills = () => {
     <>
 
     {/* Desktop version */}
-    <div className='hidden lg:block h-[100vh] w-4/5 mx-auto mt-10 -z-10'>
-      <motion.h2 className="text-6xl font-bold text-center py-14"
+    <div className='hidden h-auto mx-auto mt-10 scale-75 lg:block -z-10'>
+      <motion.h2 className="mb-10 text-6xl font-bold text-center py-14"
       whileInView={{scale: [0, 1]}}
       transition={{duration: 1}}
       >Skills & <span className='text-blue-800'>Experiences</span></motion.h2>
 
 
       <div className="flex flex-row justify-between app__skills-container">
-        <motion.div className="flex flex-wrap items-center justify-center app__skills-list min-w-[600px] max-w-[650px]">
+        <motion.div className="flex flex-wrap items-center justify-center app__skills-list min-w-[400px]">
           {skills.map((skill, index) => (
             <motion.div
               whileInView={{ opacity: [0, 1] }}
@@ -121,7 +121,7 @@ const Skills = () => {
     </div>
 
 {/* Mobile View */}
-<div className='lg:hidden h-[100vh] w-4/5 mx-auto mt-10 -z-10'>
+<div className='w-[550px] h-auto mx-auto mt-10  lg:hidden -z-10'>
 <motion.h2 className="mb-10 text-5xl font-bold text-center py-14"
 whileInView={{scale: [0, 1]}}
 transition={{duration: 1}}
@@ -129,14 +129,14 @@ transition={{duration: 1}}
 
 
 <div className="flex flex-col justify-between">
-  <motion.div className="flex flex-wrap items-start justify-start min-w-[600px] max-w-[650px]">
+  <motion.div className="flex flex-wrap items-start justify-start min-w-[500px] max-w-[520px]">
     {skills.map((skill, index) => (
       <motion.div
         whileInView={{ opacity: [0, 1] }}
         transition={{ duration: 0.5 }}
         key={index}
       >
-        <div className="self-center w-20 h-20 mx-5 rounded-full hover:shadow-neon-glow-green hover:shadow-slate-300" style={{ backgroundColor: skill.bgColor }}>
+        <div className="self-center w-20 h-20 mx-2 rounded-full hover:shadow-neon-glow-green hover:shadow-slate-300" style={{ backgroundColor: skill.bgColor }}>
           <img className='p-3' src={skill.icon} alt={skill.name} />
         </div>
         <p className="py-4 text-xl font-bold text-center">{skill.name}</p>

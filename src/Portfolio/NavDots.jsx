@@ -2,7 +2,7 @@
 import React from 'react';
 
 const NavigationDots = (active) => (
-  <div className="fixed right-0 flex flex-col items-center transform -translate-y-1/2 app__navigation top-1/2">
+  <div className="fixed flex flex-col items-center transform -translate-y-1/2 right-[10px] lg:right-[50px] app__navigation top-1/2">
     {['Home', 'About', 'Skills'].map((item) => (
       <a
         href={`#${item}`}
