@@ -8,7 +8,7 @@ import About from '../Portfolio/About';
 function LandingPage(props) {
 
   return (
-    <div onClick={props.closeDropdown} className='w-screen h-[100vh] font-serif scale-75'>
+    <div onClick={props.closeDropdown} className='w-screen h-[100vh] font-serif'>
       <Nav />
       <SocialMedia />
       <Header />
