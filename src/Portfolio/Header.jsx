@@ -17,7 +17,7 @@ const scaleVariants = {
 const Header = () => (
   <>
   {/* //Desktop header */}
-  <div className="flex-row items-center justify-center hidden w-4/5 h-auto mx-auto mt-16 lg:flex -z-10 ">
+  <div className="flex-row items-center justify-center hidden h-[85vh] mx-auto scale-75 lg:flex -z-10">
     <motion.div
       whileInView={{ x: [-100, 0], opacity: [0, 1] }}
       transition={{ duration: 0.5 }}
@@ -79,7 +79,7 @@ const Header = () => (
   </div>
 
 {/* //Mobile header */}
-<div className="flex flex-col items-center justify-center w-4/5 h-auto mx-auto mt-10 lg:hidden -z-10 ">
+<div className="flex flex-col items-center justify-center w-[625px] h-auto mx-auto lg:hidden -z-10 mb-40 mt-20">
     <motion.div
       whileInView={{ x: [-100, 0], opacity: [0, 1] }}
       transition={{ duration: 0.5 }}
